@@ -55,7 +55,7 @@ _Your repository must include:_
 
 *As a developer, I want to utilize modern JavaScript features so that my code is up to date with industry standards.*
 
-- Refactor the functions and methods in articleView.js to use ES6 arrow functions.
+- Refactor the functions and methods in your code to use ES6 arrow functions when possible.
 
 ### Stretch Goal
 *As a developer, I want to use Handlebars to build my filters so that my code is more DRY.*
