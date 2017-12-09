@@ -8,24 +8,31 @@ let articleView = {};
 // In an arrow funciton 'this' lexical context is within it's containing block of code. But we want 'this' to be referring to the
 // instance of the article object, so we cannot use arrow funcitons on the selector methods.
 
-articleView.populateFilters = () => {
-  $('article').each(function() {
-    if (!$(this).hasClass('template')) {
-      let val = $(this).find('address a').text();
-      let optionTag = `<option value="${val}">${val}</option>`;
+// articleView.populateFilters = () => {
+//   let filterSource = $('#filter-template').html();
+//   let filterTemplate = Handlebars.compile(filterSource);
+//   let authorContext = {};
+//   let categoryContext = {};
 
-      if ($(`#author-filter option[value="${val}"]`).length === 0) {
-        $('#author-filter').append(optionTag);
-      }
+//   $('article').each(function() {
+//     if (!$(this).hasClass('template')) {
+//       let author = $(this).find('address a').text();
+//       let category = $(this).attr('data-category');
+//       //let optionTag = `<option value="${val}">${val}</option>`;
 
-      val = $(this).attr('data-category');
-      optionTag = `<option value="${val}">${val}</option>`;
-      if ($(`#category-filter option[value="${val}"]`).length === 0) {
-        $('#category-filter').append(optionTag);
-      }
-    }
-  });
-};
+//       if (!authorContext.hasOwnProperty(author)) {
+//         authorContext[author] = author;
+//       }
+
+//       if (!categoryContext.hasOwnProperty(category)) {
+//         categoryContext[category] = category;
+//       }
+//     }
+//   });
+//   let authorHtml = filterTemplate(authorContext);
+//   let categoryHtml = filterTemplate(categoryContext);
+//   return [authorHtml, categoryHtml];
+// };
 
 articleView.handleAuthorFilter = () => {
   $('#author-filter').on('change', function(){
@@ -80,7 +87,7 @@ articleView.setTeasers = () => {
 };
 
 $(document).ready(() => {
-  articleView.populateFilters();
+  //articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
   articleView.handleMainNav();

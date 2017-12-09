@@ -40,6 +40,18 @@ Article.prototype.toHtml = function() {
 
 };
 
+  let populateFilters = () => {
+  let articleData = {articles: articles};
+  //
+  let authorSource = $('#author-f').html();
+  let authorTemplate = Handlebars.compile(authorSource);
+
+  let categorySource = $('#category-f').html();
+  let categoryTemplate = Handlebars.compile(categorySource);
+
+  return [authorTemplate(articleData),categoryTemplate(articleData)];
+}
+
 // COMMENT: Why are there parentheses around "(a,b)" in the .sort() method, but not around the "articleObject" or "article" arguments in the .forEach() methods?
 // Parentheses are optional for one argument, but necessary for more than one argument.
 rawData.sort((a,b) => {
@@ -53,3 +65,7 @@ rawData.forEach(articleObject => {
 articles.forEach(article => {
   $('#articles').append(article.toHtml());
 });
+
+
+$('#author-filter').append(populateFilters()[0]);
+$('#category-filter').append(populateFilters()[1]);

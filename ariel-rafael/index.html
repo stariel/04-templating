@@ -31,6 +31,22 @@
       </article>
      </script> 
 
+    <script id="author-f" type="text/x-handlebars-template">
+      {{#each articles}}
+      <option value="{{author}}">
+          {{author}}
+      </option>
+      {{/each}} 
+    </script>
+
+    <script id="category-f" type="text/x-handlebars-template">
+      {{#each articles}}
+      <option value="{{category}}">
+          {{category}}
+      </option>
+      {{/each}} 
+    </script>
+
   </head>
   <body>
     <header class="site-header clearfix">
